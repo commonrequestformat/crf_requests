@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CRF Requests feature.
+ */
+
+include_once 'crf_requests.features.inc';
