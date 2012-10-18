@@ -10,7 +10,7 @@
 function crf_requests_views_default_views() {
   $export = array();
 
-  $view = new view;
+  $view = new view();
   $view->name = 'requests';
   $view->description = '';
   $view->tag = 'default';
@@ -23,6 +23,7 @@ function crf_requests_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Requests';
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -32,7 +33,6 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '1';
-  $handler->display->display_options['style_options']['fill_single_line'] = 1;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
   /* Field: Content: Title */
@@ -40,17 +40,8 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -73,15 +64,16 @@ function crf_requests_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'crf';
 
   /* Display: Cluster-Specific Page */
   $handler = $view->new_display('page', 'Cluster-Specific Page', 'page_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['style_options']['columns'] = '1';
   $handler->display->display_options['style_options']['alignment'] = 'vertical';
-  $handler->display->display_options['style_options']['fill_single_line'] = 1;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
@@ -93,12 +85,9 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['arguments']['field_cluster_tid']['table'] = 'field_data_field_cluster';
   $handler->display->display_options['arguments']['field_cluster_tid']['field'] = 'field_cluster_tid';
   $handler->display->display_options['arguments']['field_cluster_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_cluster_tid']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['field_cluster_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_cluster_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_cluster_tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_cluster_tid']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['field_cluster_tid']['not'] = 0;
   $handler->display->display_options['path'] = 'crf/cluster';
   $translatables['requests'] = array(
     t('Master'),
@@ -112,6 +101,10 @@ function crf_requests_views_default_views() {
     t('Items per page'),
     t('- All -'),
     t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Page'),
     t('Cluster-Specific Page'),
     t('All'),

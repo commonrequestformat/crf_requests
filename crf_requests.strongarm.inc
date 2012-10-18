@@ -21,7 +21,7 @@ function crf_requests_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_node_crf_request';
-  $strongarm->value = 'Request: [node:field-crf-req-date:long]';
+  $strongarm->value = 'Request: [node:field-crf-req-date:request]';
   $export['auto_entitylabel_pattern_node_crf_request'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -79,6 +79,13 @@ function crf_requests_strongarm() {
   $strongarm->name = 'comment_subject_field_crf_request';
   $strongarm->value = 1;
   $export['comment_subject_field_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_request';
+  $strongarm->value = 'l, d F Y';
+  $export['date_format_request'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -198,6 +205,13 @@ function crf_requests_strongarm() {
   $strongarm->name = 'print_display_urllist_crf_request';
   $strongarm->value = 0;
   $export['print_display_urllist_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_frontpage';
+  $strongarm->value = 'crf';
+  $export['site_frontpage'] = $strongarm;
 
   return $export;
 }

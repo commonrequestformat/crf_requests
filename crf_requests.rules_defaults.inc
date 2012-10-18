@@ -27,8 +27,9 @@ function crf_requests_default_rules_configuration() {
             "DO" : [
               { "mail" : {
                   "to" : "[contact:field-contact-email]",
-                  "subject" : "New request \\u0022[node:title]\\u0022.",
-                  "message" : "Request for information for \\u0022[node:title]\\u0022.",
+                  "subject" : "New Request for Information (from OCHA)",
+                  "message" : "Dear [contact:field_contact_first_name] [contact:field_contact_lastname],\\r\\n\\r\\nOCHA ([node:author:name]) is requesting that you provide specific information as outlined below in the Information [node:title].\\r\\n\\r\\nnode:field-crf-req-contents:0\\r\\nnode:field-crf-req-contents:1\\r\\nnode:field-crf-req-contents:2\\r\\nnode:field-crf-req-contents:3\\r\\nnode:field-crf-req-contents:4\\r\\nnode:field-crf-req-contents:5\\r\\n\\r\\nWe kindly ask that you provide your input by Z  (where Z is a date inputed by OCHA for deadline of request).\\r\\n\\r\\nKindly provide your information online: [node:url]\\r\\n\\r\\nKind regards,\\r\\nOCHA",
+                  "from" : [ "node:author:mail" ],
                   "language" : [ "" ]
                 }
               }
