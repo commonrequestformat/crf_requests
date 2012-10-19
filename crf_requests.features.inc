@@ -22,6 +22,16 @@ function crf_requests_views_api() {
 }
 
 /**
+ * Implements hook_date_format_types().
+ */
+function crf_requests_date_format_types() {
+  $format_types = array();
+  // Exported date format type: request
+  $format_types['request'] = 'Request';
+  return $format_types;
+}
+
+/**
  * Implements hook_node_info().
  */
 function crf_requests_node_info() {
