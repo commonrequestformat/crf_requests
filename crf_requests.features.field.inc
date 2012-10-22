@@ -79,10 +79,13 @@ function crf_requests_field_default_fields() {
   $fields['node-crf_request-field_crf_req_contact'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_crf_req_contact',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'users' => array(
           'columns' => array(
@@ -107,9 +110,6 @@ function crf_requests_field_default_fields() {
             ),
           ),
           'sort' => array(
-            'direction' => 'ASC',
-            'field' => 'none',
-            'property' => 'uid',
             'type' => 'none',
           ),
           'target_bundles' => array(),
@@ -146,24 +146,16 @@ function crf_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_crf_req_contact',
-      'label' => 'Contact',
-      'required' => 0,
+      'label' => 'OCHA focal point(s) for request',
+      'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference',
-        'settings' => array(
-          'match_operator' => 'CONTAINS',
-          'path' => '',
-          'references_dialog_add' => 0,
-          'references_dialog_edit' => 0,
-          'references_dialog_search' => 0,
-          'references_dialog_search_view' => '',
-          'size' => '60',
-        ),
-        'type' => 'entityreference_autocomplete',
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
         'weight' => '4',
       ),
     ),
@@ -407,10 +399,10 @@ function crf_requests_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Comment');
-  t('Contact');
   t('Content Types');
   t('Date');
   t('Emergencies');
+  t('OCHA focal point(s) for request');
 
   return $fields;
 }
