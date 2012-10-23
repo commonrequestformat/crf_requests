@@ -6,6 +6,7 @@ php = 5.2.4
 dependencies[] = auto_entitylabel
 dependencies[] = ctools
 dependencies[] = date
+dependencies[] = date_views
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = humanitarianresponse_emergencies

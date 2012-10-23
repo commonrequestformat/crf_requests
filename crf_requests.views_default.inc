@@ -35,6 +35,17 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['style_options']['columns'] = '1';
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
+  /* Relationship: Content: Emergencies (field_emergencies) */
+  $handler->display->display_options['relationships']['field_emergencies_tid']['id'] = 'field_emergencies_tid';
+  $handler->display->display_options['relationships']['field_emergencies_tid']['table'] = 'field_data_field_emergencies';
+  $handler->display->display_options['relationships']['field_emergencies_tid']['field'] = 'field_emergencies_tid';
+  $handler->display->display_options['relationships']['field_emergencies_tid']['label'] = 'term from emergencies';
+  /* Relationship: Taxonomy term: Disaster type (field_emergency_disaster_type) */
+  $handler->display->display_options['relationships']['field_emergency_disaster_type_tid']['id'] = 'field_emergency_disaster_type_tid';
+  $handler->display->display_options['relationships']['field_emergency_disaster_type_tid']['table'] = 'field_data_field_emergency_disaster_type';
+  $handler->display->display_options['relationships']['field_emergency_disaster_type_tid']['field'] = 'field_emergency_disaster_type_tid';
+  $handler->display->display_options['relationships']['field_emergency_disaster_type_tid']['relationship'] = 'field_emergencies_tid';
+  $handler->display->display_options['relationships']['field_emergency_disaster_type_tid']['label'] = 'term from emergency disaster type';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -60,6 +71,89 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'crf_request' => 'crf_request',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Date: Date (node) */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'node';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
+  $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date range';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
+    'field_data_field_crf_req_date.field_crf_req_date_value' => 'field_data_field_crf_req_date.field_crf_req_date_value',
+  );
+  /* Filter criterion: Workflow: Current state */
+  $handler->display->display_options['filters']['sid']['id'] = 'sid';
+  $handler->display->display_options['filters']['sid']['table'] = 'workflow_node';
+  $handler->display->display_options['filters']['sid']['field'] = 'sid';
+  $handler->display->display_options['filters']['sid']['group'] = 1;
+  $handler->display->display_options['filters']['sid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['sid']['expose']['operator_id'] = 'sid_op';
+  $handler->display->display_options['filters']['sid']['expose']['label'] = 'Status';
+  $handler->display->display_options['filters']['sid']['expose']['operator'] = 'sid_op';
+  $handler->display->display_options['filters']['sid']['expose']['identifier'] = 'sid';
+  $handler->display->display_options['filters']['sid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['sid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Content: Emergencies (field_emergencies) */
+  $handler->display->display_options['filters']['field_emergencies_tid']['id'] = 'field_emergencies_tid';
+  $handler->display->display_options['filters']['field_emergencies_tid']['table'] = 'field_data_field_emergencies';
+  $handler->display->display_options['filters']['field_emergencies_tid']['field'] = 'field_emergencies_tid';
+  $handler->display->display_options['filters']['field_emergencies_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_emergencies_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_emergencies_tid']['expose']['operator_id'] = 'field_emergencies_tid_op';
+  $handler->display->display_options['filters']['field_emergencies_tid']['expose']['label'] = 'Emergency';
+  $handler->display->display_options['filters']['field_emergencies_tid']['expose']['operator'] = 'field_emergencies_tid_op';
+  $handler->display->display_options['filters']['field_emergencies_tid']['expose']['identifier'] = 'field_emergencies_tid';
+  $handler->display->display_options['filters']['field_emergencies_tid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_emergencies_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_emergencies_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_emergencies_tid']['vocabulary'] = 'emergencies';
+  /* Filter criterion: Taxonomy term: Name (name_field) */
+  $handler->display->display_options['filters']['name_field_value']['id'] = 'name_field_value';
+  $handler->display->display_options['filters']['name_field_value']['table'] = 'field_data_name_field';
+  $handler->display->display_options['filters']['name_field_value']['field'] = 'name_field_value';
+  $handler->display->display_options['filters']['name_field_value']['relationship'] = 'field_emergency_disaster_type_tid';
+  $handler->display->display_options['filters']['name_field_value']['group'] = 1;
+  $handler->display->display_options['filters']['name_field_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['name_field_value']['expose']['operator_id'] = 'name_field_value_op';
+  $handler->display->display_options['filters']['name_field_value']['expose']['label'] = 'Disaster type';
+  $handler->display->display_options['filters']['name_field_value']['expose']['operator'] = 'name_field_value_op';
+  $handler->display->display_options['filters']['name_field_value']['expose']['identifier'] = 'name_field_value';
+  $handler->display->display_options['filters']['name_field_value']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['name_field_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
   );
 
   /* Display: Page */
@@ -105,6 +199,12 @@ function crf_requests_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('term from emergencies'),
+    t('term from emergency disaster type'),
+    t('Date range'),
+    t('Status'),
+    t('Emergency'),
+    t('Disaster type'),
     t('Page'),
     t('Cluster-Specific Page'),
     t('All'),
