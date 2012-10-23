@@ -127,10 +127,10 @@ function crf_requests_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
         'workflow' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
       ),
       'display' => array(),
