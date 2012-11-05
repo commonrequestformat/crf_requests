@@ -57,7 +57,7 @@ function crf_requests_workflow_default_workflows() {
   // Exported workflow: Request Workflow
   $workflows['Request Workflow'] = array(
     'name' => 'Request Workflow',
-    'tab_roles' => '',
+    'tab_roles' => '52310416,30037204',
     'options' => 'a:3:{s:16:"comment_log_node";i:0;s:15:"comment_log_tab";i:0;s:13:"name_as_title";i:0;}',
     'states' => array(
       0 => array(
@@ -81,17 +81,22 @@ function crf_requests_workflow_default_workflows() {
     ),
     'transitions' => array(
       0 => array(
-        'roles' => 'workflow_features_author_name',
+        'roles' => 'workflow_features_author_name,manager,administrator',
         'state' => '(creation)',
         'target_state' => 'Open',
       ),
       1 => array(
-        'roles' => 'workflow_features_author_name',
-        'state' => 'Open',
+        'roles' => 'workflow_features_author_name,manager,administrator',
+        'state' => '(creation)',
         'target_state' => 'Close',
       ),
       2 => array(
-        'roles' => 'workflow_features_author_name',
+        'roles' => 'workflow_features_author_name,manager,administrator',
+        'state' => 'Open',
+        'target_state' => 'Close',
+      ),
+      3 => array(
+        'roles' => 'workflow_features_author_name,manager,administrator',
         'state' => 'Close',
         'target_state' => 'Open',
       ),
