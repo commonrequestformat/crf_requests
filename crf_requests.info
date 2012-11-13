@@ -5,6 +5,7 @@ package = CRF
 php = 5.2.4
 dependencies[] = advanced_help
 dependencies[] = auto_entitylabel
+dependencies[] = crf_fts_message
 dependencies[] = crf_workbench
 dependencies[] = ctools
 dependencies[] = date

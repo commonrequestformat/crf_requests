@@ -169,7 +169,7 @@ function crf_requests_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -255,7 +255,7 @@ function crf_requests_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -286,6 +286,7 @@ function crf_requests_field_default_fields() {
           'sectoral_analysis' => 'Sectoral Analysis',
           'contacts_upload' => 'Contacts Upload',
           'assessments_batch' => 'Assessments',
+          'fts_message' => 'Financial Tracking Service Message',
         ),
         'allowed_values_function' => '',
       ),
@@ -327,8 +328,9 @@ function crf_requests_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '3',
+        'weight' => '4',
       ),
+      'workbench_access_field' => 0,
     ),
   );
 
@@ -413,7 +415,7 @@ function crf_requests_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_select',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -490,7 +492,7 @@ function crf_requests_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
