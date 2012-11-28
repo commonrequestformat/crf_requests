@@ -55,6 +55,12 @@ function crf_requests_field_default_fields() {
           'type' => 'text_default',
           'weight' => 0,
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
       ),
       'entity_type' => 'comment',
       'field_name' => 'comment_body',
@@ -120,6 +126,12 @@ function crf_requests_field_default_fields() {
           ),
           'type' => 'text_default',
           'weight' => 4,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -236,6 +248,12 @@ function crf_requests_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '2',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -252,11 +270,15 @@ function crf_requests_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
+        'module' => 'entityreference_view_widget',
+        'settings' => array(
+          'pass_argument' => 0,
+          'view' => 'ocha_focal_points|entityreference_view_widget_1',
+        ),
+        'type' => 'entityreference_view_widget',
         'weight' => '5',
       ),
+      'workbench_access_field' => 0,
     ),
   );
 
@@ -308,6 +330,12 @@ function crf_requests_field_default_fields() {
           ),
           'type' => 'list_default',
           'weight' => '1',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -384,6 +412,12 @@ function crf_requests_field_default_fields() {
           ),
           'type' => 'date_default',
           'weight' => '0',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -472,6 +506,12 @@ function crf_requests_field_default_fields() {
           ),
           'type' => 'taxonomy_term_reference_link',
           'weight' => '3',
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
