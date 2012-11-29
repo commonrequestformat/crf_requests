@@ -13,6 +13,13 @@ function crf_requests_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'autosave_crf_request';
+  $strongarm->value = 1;
+  $export['autosave_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_node_crf_request';
   $strongarm->value = '1';
   $export['auto_entitylabel_node_crf_request'] = $strongarm;
@@ -86,6 +93,48 @@ function crf_requests_strongarm() {
   $strongarm->name = 'date_format_request';
   $strongarm->value = 'l, d F Y';
   $export['date_format_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_crf_request';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_diff_inline_node_crf_request';
+  $strongarm->value = 0;
+  $export['diff_show_diff_inline_node_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_crf_request';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_inline_node_crf_request';
+  $strongarm->value = 'diff_complete';
+  $export['diff_view_mode_inline_node_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_crf_request';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_crf_request'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_standard_node_crf_request';
+  $strongarm->value = 0;
+  $export['diff_view_mode_standard_node_crf_request'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

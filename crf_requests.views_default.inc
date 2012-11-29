@@ -166,6 +166,7 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'crf_request' => 'crf_request',
+    'non_cluster_request' => 'non_cluster_request',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Date: Date (node) */
