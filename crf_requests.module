@@ -77,7 +77,41 @@ function crf_requests_get_cluster_contacts() {
 }
 
 
+/**
+ * Implements hook_block_info().
+ */
+function crf_requests_block_info() {
+  $blocks['legend'] = array(
+    'info' => t('Legend'),
+  );
+  return $blocks;
+}
 
+
+/**
+ * Implements hook_block_view().
+ */
+function crf_requests_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'legend':
+      $legend_vars = array(
+        'path' => path_to_theme() . '/images/crf_request/request-legend.png',
+        'alt' => 'Legend',
+        'title' => 'Legend',
+        'width' => '172',
+        'height' => '254',
+        'attributes' => array('class' => 'request-legend'),
+      );
+    
+      $block['subject'] = t('Legend');
+      $block['content'] = theme('image', $legend_vars);
+      break;
+  }
+  
+  return $block;
+}
 
 
 
