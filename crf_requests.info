@@ -15,6 +15,7 @@ dependencies[] = entityreference_view_widget
 dependencies[] = features
 dependencies[] = humanitarianresponse_emergencies
 dependencies[] = list
+dependencies[] = maxlength
 dependencies[] = options
 dependencies[] = prepopulate
 dependencies[] = print
