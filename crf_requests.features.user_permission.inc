@@ -10,17 +10,6 @@
 function crf_requests_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: access print.
-  $permissions['access print'] = array(
-    'name' => 'access print',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-      2 => 'manager',
-    ),
-    'module' => 'print',
-  );
-
   // Exported permission: create crf_request content.
   $permissions['create crf_request content'] = array(
     'name' => 'create crf_request content',
