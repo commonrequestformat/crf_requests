@@ -162,5 +162,15 @@ function crf_requests_user_default_permissions() {
     'module' => 'advanced_help',
   );
 
+  // Exported permission: view any unpublished crf_request content.
+  $permissions['view any unpublished crf_request content'] = array(
+    'name' => 'view any unpublished crf_request content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'manager',
+    ),
+    'module' => 'view_unpublished',
+  );
+
   return $permissions;
 }
