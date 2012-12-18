@@ -40,36 +40,6 @@ function crf_requests_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: delete terms in emergencies.
-  $permissions['delete terms in emergencies'] = array(
-    'name' => 'delete terms in emergencies',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in locations.
-  $permissions['delete terms in locations'] = array(
-    'name' => 'delete terms in locations',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: delete terms in organizations.
-  $permissions['delete terms in organizations'] = array(
-    'name' => 'delete terms in organizations',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
-    ),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: edit any crf_request content.
   $permissions['edit any crf_request content'] = array(
     'name' => 'edit any crf_request content',
@@ -88,36 +58,6 @@ function crf_requests_user_default_permissions() {
       1 => 'manager',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: edit terms in emergencies.
-  $permissions['edit terms in emergencies'] = array(
-    'name' => 'edit terms in emergencies',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in locations.
-  $permissions['edit terms in locations'] = array(
-    'name' => 'edit terms in locations',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
-    ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: edit terms in organizations.
-  $permissions['edit terms in organizations'] = array(
-    'name' => 'edit terms in organizations',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
-    ),
-    'module' => 'taxonomy',
   );
 
   // Exported permission: node-specific print configuration.
