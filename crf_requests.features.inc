@@ -32,6 +32,20 @@ function crf_requests_date_format_types() {
 }
 
 /**
+ * Implements hook_context_default_contexts_alter().
+ */
+function crf_requests_context_default_contexts_alter(&$data) {
+  if (isset($data['sitewide'])) {
+    $data['sitewide']->reactions['block']['blocks']['crf_requests-legend'] = array(
+      'module' => 'crf_requests',
+      'delta' => 'legend',
+      'region' => 'sidebar_first',
+      'weight' => '-10',
+    ); /* WAS: '' */
+  }
+}
+
+/**
  * Implements hook_node_info().
  */
 function crf_requests_node_info() {
