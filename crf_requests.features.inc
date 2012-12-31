@@ -51,7 +51,7 @@ function crf_requests_context_default_contexts_alter(&$data) {
 function crf_requests_node_info() {
   $items = array(
     'crf_request' => array(
-      'name' => t('Cluster Request'),
+      'name' => t('Request (Clusters)'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
