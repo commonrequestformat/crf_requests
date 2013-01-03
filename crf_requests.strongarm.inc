@@ -176,7 +176,7 @@ function crf_requests_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '8',
+          'weight' => '5',
         ),
         'workflow' => array(
           'weight' => '6',

@@ -142,7 +142,7 @@ function crf_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_append_to_alert_email',
-      'label' => 'Append to alert email',
+      'label' => 'Append to Information Request email',
       'required' => 0,
       'settings' => array(
         'better_formats' => array(
@@ -178,11 +178,16 @@ function crf_requests_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
+          'maxlength_js' => '',
+          'maxlength_js_enforce' => 0,
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'maxlength_js_truncate_html' => 0,
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '6',
+        'weight' => '7',
       ),
+      'workbench_access_field' => 0,
     ),
   );
 
@@ -276,7 +281,7 @@ function crf_requests_field_default_fields() {
           'view' => 'ocha_focal_points|entityreference_view_widget_1',
         ),
         'type' => 'entityreference_view_widget',
-        'weight' => '5',
+        'weight' => '4',
       ),
       'workbench_access_field' => 0,
     ),
@@ -346,7 +351,7 @@ function crf_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_crf_req_contents',
-      'label' => 'Content Types',
+      'label' => 'Information Requested',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -354,9 +359,11 @@ function crf_requests_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        ),
         'type' => 'options_buttons',
-        'weight' => '4',
+        'weight' => '3',
       ),
       'workbench_access_field' => 0,
     ),
@@ -452,7 +459,7 @@ function crf_requests_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_select',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
@@ -535,18 +542,18 @@ function crf_requests_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Append to alert email');
+  t('Append to Information Request email');
   t('Comment');
-  t('Content Types');
   t('Date');
   t('Emergencies');
+  t('Information Requested');
   t('OCHA focal point(s) for request');
 
   return $fields;
