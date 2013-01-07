@@ -36,6 +36,12 @@ function crf_requests_date_format_types() {
  */
 function crf_requests_context_default_contexts_alter(&$data) {
   if (isset($data['sitewide'])) {
+    $data['sitewide']->reactions['block']['blocks']['crf_requests-administrator'] = array(
+      'module' => 'crf_requests',
+      'delta' => 'administrator',
+      'region' => 'sidebar_first',
+      'weight' => '-9',
+    ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-create_request'] = array(
       'module' => 'crf_requests',
       'delta' => 'create_request',
@@ -46,7 +52,7 @@ function crf_requests_context_default_contexts_alter(&$data) {
       'module' => 'crf_requests',
       'delta' => 'legend',
       'region' => 'sidebar_first',
-      'weight' => '-9',
+      'weight' => '-8',
     ); /* WAS: '' */
   }
 }

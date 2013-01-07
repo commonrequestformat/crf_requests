@@ -98,6 +98,9 @@ function crf_requests_block_info() {
   $blocks['create_request'] = array(
     'info' => t('Create Request'),
   );
+  $blocks['administrator'] = array(
+    'info' => t('Administrator'),
+  );
   return $blocks;
 }
 
@@ -127,6 +130,14 @@ function crf_requests_block_view($delta = '') {
       $items[] = l('Request (Clusters)', 'node/add/crf-request');
       $items[] = l('Request (Non-Cluster)', 'node/add/non-cluster-request');
       $block['subject'] = t('Create Request');
+      $block['content'] = theme('item_list', array('items' => $items));
+      break;
+    case 'administrator':
+      $items = array();
+      $items[] = l('Manage Focal Points', 'admin/people');
+      $items[] = l('Manage Emergencies', 'admin/structure/taxonomy/emergencies');
+      $items[] = l('Manage Clusters', 'admin/structure/taxonomy/clusters');
+      $block['subject'] = t('Administrator');
       $block['content'] = theme('item_list', array('items' => $items));
       break;
   }
