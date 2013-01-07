@@ -95,6 +95,9 @@ function crf_requests_block_info() {
   $blocks['legend'] = array(
     'info' => t('Legend'),
   );
+  $blocks['create_request'] = array(
+    'info' => t('Create Request'),
+  );
   return $blocks;
 }
 
@@ -118,6 +121,13 @@ function crf_requests_block_view($delta = '') {
     
       $block['subject'] = t('Legend');
       $block['content'] = theme('image', $legend_vars);
+      break;
+    case 'create_request':
+      $items = array();
+      $items[] = l('Request (Clusters)', 'node/add/crf-request');
+      $items[] = l('Request (Non-Cluster)', 'node/add/non-cluster-request');
+      $block['subject'] = t('Create Request');
+      $block['content'] = theme('item_list', array('items' => $items));
       break;
   }
   

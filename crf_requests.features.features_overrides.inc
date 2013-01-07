@@ -12,11 +12,17 @@ function crf_requests_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: context
+  $overrides["context.sitewide.reactions|block|blocks|crf_requests-create_request"] = array(
+    'module' => 'crf_requests',
+    'delta' => 'create_request',
+    'region' => 'sidebar_first',
+    'weight' => '-10',
+  );
   $overrides["context.sitewide.reactions|block|blocks|crf_requests-legend"] = array(
     'module' => 'crf_requests',
     'delta' => 'legend',
     'region' => 'sidebar_first',
-    'weight' => '-10',
+    'weight' => '-9',
   );
 
  return $overrides;
