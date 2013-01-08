@@ -14,6 +14,13 @@ function crf_requests_form_crf_request_node_form_alter(&$form, &$form_state, $fo
   $node = $form['#node'];
   if (!isset($node->nid)) {  
     $form['actions']['submit']['#value'] = t('Create & Send Info Request');
+  
+    // Help link
+    $help_link = theme('advanced_help_topic', array(
+      'module' => 'crf_requests',
+      'topic' => 'request-email',
+    ));
+    $form['field_append_to_alert_email']['#prefix'] = $help_link . '&nbsp;' . t('Show me an Information Request email example');
   }
 }
 
