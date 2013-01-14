@@ -141,7 +141,8 @@ function crf_requests_block_view($delta = '') {
       break;
     case 'administrator':
       $items = array();
-      $items[] = l('Manage Focal Points', 'admin/people');
+      $items[] = l('Create Focal Point', 'node/add/contact');
+      $items[] = l('Manage Content', 'admin/content');
       $items[] = l('Manage Emergencies', 'admin/structure/taxonomy/emergencies');
       $items[] = l('Manage Clusters', 'admin/structure/taxonomy/clusters');
       $block['subject'] = t('Administrator');
