@@ -14,8 +14,8 @@ function crf_requests_user_default_permissions() {
   $permissions['create crf_request content'] = array(
     'name' => 'create crf_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -24,8 +24,8 @@ function crf_requests_user_default_permissions() {
   $permissions['delete any crf_request content'] = array(
     'name' => 'delete any crf_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -34,8 +34,8 @@ function crf_requests_user_default_permissions() {
   $permissions['delete own crf_request content'] = array(
     'name' => 'delete own crf_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -44,8 +44,8 @@ function crf_requests_user_default_permissions() {
   $permissions['edit any crf_request content'] = array(
     'name' => 'edit any crf_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -54,8 +54,8 @@ function crf_requests_user_default_permissions() {
   $permissions['edit own crf_request content'] = array(
     'name' => 'edit own crf_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'node',
   );
@@ -64,7 +64,7 @@ function crf_requests_user_default_permissions() {
   $permissions['node-specific print configuration'] = array(
     'name' => 'node-specific print configuration',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'print',
   );
@@ -73,9 +73,9 @@ function crf_requests_user_default_permissions() {
   $permissions['view advanced help index'] = array(
     'name' => 'view advanced help index',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-      2 => 'manager',
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'advanced_help',
   );
@@ -84,9 +84,9 @@ function crf_requests_user_default_permissions() {
   $permissions['view advanced help popup'] = array(
     'name' => 'view advanced help popup',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-      2 => 'manager',
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'advanced_help',
   );
@@ -95,9 +95,9 @@ function crf_requests_user_default_permissions() {
   $permissions['view advanced help topic'] = array(
     'name' => 'view advanced help topic',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-      2 => 'manager',
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+      'manager' => 'manager',
     ),
     'module' => 'advanced_help',
   );
@@ -106,8 +106,8 @@ function crf_requests_user_default_permissions() {
   $permissions['view any unpublished crf_request content'] = array(
     'name' => 'view any unpublished crf_request content',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'manager',
+      'administrator' => 'administrator',
+      'manager' => 'manager',
     ),
     'module' => 'view_unpublished',
   );

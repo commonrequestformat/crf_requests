@@ -18,17 +18,7 @@ function crf_requests_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function crf_requests_views_api() {
-  return array("version" => "3.0");
-}
-
-/**
- * Implements hook_date_format_types().
- */
-function crf_requests_date_format_types() {
-  $format_types = array();
-  // Exported date format type: request
-  $format_types['request'] = 'Request';
-  return $format_types;
+  return array("api" => "3.0");
 }
 
 /**
