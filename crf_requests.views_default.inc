@@ -122,6 +122,7 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     30037204 => '30037204',
+    200153887 => '200153887',
     52310416 => '52310416',
   );
   $handler->display->display_options['cache']['type'] = 'none';
