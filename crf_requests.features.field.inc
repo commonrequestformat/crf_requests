@@ -561,11 +561,110 @@ function crf_requests_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-crf_request-field_request_deadline'.
+  $fields['node-crf_request-field_request_deadline'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_request_deadline',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'date',
+      'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
+        'entity_translation_sync' => FALSE,
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 0,
+          'minute' => 0,
+          'month' => 'month',
+          'second' => 0,
+          'year' => 'year',
+        ),
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
+      ),
+      'translatable' => '0',
+      'type' => 'datetime',
+    ),
+    'field_instance' => array(
+      'bundle' => 'crf_request',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'date',
+          'settings' => array(
+            'diff_custom' => 0,
+            'diff_custom_settings' => array(),
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+          ),
+          'type' => 'date_default',
+          'weight' => 8,
+        ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_request_deadline',
+      'label' => 'Deadline',
+      'required' => 0,
+      'settings' => array(
+        'default_value' => 'now',
+        'default_value2' => 'same',
+        'default_value_code' => '',
+        'default_value_code2' => '',
+        'entity_translation_sync' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'date',
+        'settings' => array(
+          'increment' => '15',
+          'input_format' => 'm/d/Y - H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_select',
+        'weight' => '13',
+      ),
+      'workbench_access_field' => 0,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Append to Information Request email');
   t('Comment');
   t('Date');
+  t('Deadline');
   t('Emergencies');
   t('Information Requested');
   t('OCHA focal point(s) for request');
