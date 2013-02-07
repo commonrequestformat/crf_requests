@@ -71,7 +71,10 @@ function crf_requests_mail($key, &$message, $params) {
     $body .= '<p>Kind regards,' . '<br />';
     $body .= 'OCHA</p>';
 
-    $message['subject'] = t('New Request for Information (from OCHA)');
+    $message['subject'] = t('New Request for @content_types (from OCHA)', array('@content_types' => implode(',', $content_types)));
+    if (isset($node->field_request_deadline['und'][0]['value'])) {
+      $message['subject'] .= t(' - requested by @deadline', array('@deadline' => format_date(strtotime($node->field_request_deadline['und'][0]['value']), 'request')));
+    }
     $message['body'][] = drupal_html_to_text($body);
   }
 }

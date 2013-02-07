@@ -316,10 +316,10 @@ function crf_requests_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'hr_sitrep' => 'Situation Report',
-          'indicator_data_batch' => 'Indicator Data Batch',
+          'hr_sitrep' => 'Situation Report Information',
+          'indicator_data_batch' => 'Indicator Values',
           'sectoral_analysis' => 'Sectoral Analysis',
-          'contacts_upload' => 'Contacts Upload',
+          'contacts_upload' => 'Contacts',
           'assessments_batch' => 'Assessments',
           'fts_message' => 'Financial Tracking Service Message',
         ),
@@ -633,7 +633,7 @@ function crf_requests_field_default_fields() {
       'label' => 'Deadline',
       'required' => 0,
       'settings' => array(
-        'default_value' => 'now',
+        'default_value' => 'blank',
         'default_value2' => 'same',
         'default_value_code' => '',
         'default_value_code2' => '',
