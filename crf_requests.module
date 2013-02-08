@@ -30,16 +30,18 @@ function crf_requests_form_crf_request_node_form_alter(&$form, &$form_state, $fo
  */
 function crf_requests_node_presave($node) {
   if ($node->type == 'crf_request' && $node->is_new) {
-    $cluster_contacts = crf_requests_get_cluster_contacts();    
-    foreach ($cluster_contacts as $cluster_contact) {
-      foreach ($node->field_crf_req_contact['und'] as $request_contact) {
-        $ocha_focal_point = user_load($request_contact['target_id']);
-        $params = array(
-          'node' => $node,
-          'cluster_contact' => $cluster_contact,
-          'ocha_focal_point' => $ocha_focal_point,
-        );
-        drupal_mail('crf_requests', 'new_request_alert', $cluster_contact->field_contact_email['und'][0]['email'], $node->language, $params, $ocha_focal_point->mail);
+    if (isset($node->field_crf_req_contact['und'])) {
+      $cluster_contacts = crf_requests_get_cluster_contacts();    
+      foreach ($cluster_contacts as $cluster_contact) {
+        foreach ($node->field_crf_req_contact['und'] as $request_contact) {
+          $ocha_focal_point = user_load($request_contact['target_id']);
+          $params = array(
+            'node' => $node,
+            'cluster_contact' => $cluster_contact,
+            'ocha_focal_point' => $ocha_focal_point,
+          );
+          drupal_mail('crf_requests', 'new_request_alert', $cluster_contact->field_contact_email['und'][0]['email'], $node->language, $params, $ocha_focal_point->mail);
+        }
       }
     }
   }
