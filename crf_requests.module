@@ -146,10 +146,15 @@ function crf_requests_block_view($delta = '') {
       break;
     case 'administrator':
       $items = array();
+      $items[] = l('Create Cluster Objective', 'node/add/cluster-objectives');
       $items[] = l('Create Focal Point', 'node/add/contact');
+      $items[] = l('Create Indicator Definition', 'node/add/indicator-definition');
       $items[] = l('Manage Content', 'admin/content');
-      $items[] = l('Manage Emergencies', 'admin/structure/taxonomy/emergencies');
       $items[] = l('Manage Clusters', 'admin/structure/taxonomy/clusters');
+      $items[] = l('Manage Emergencies', 'admin/structure/taxonomy/emergencies');
+      $items[] = l('Manage Job Titles', 'admin/structure/taxonomy/job_title');
+      $items[] = l('Manage Locations', 'admin/structure/taxonomy/locations');
+      $items[] = l('Manage Organisations', 'admin/structure/taxonomy/organizations');
       $block['subject'] = t('Administrator');
       $block['content'] = theme('item_list', array('items' => $items));
       break;
