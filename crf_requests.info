@@ -8,6 +8,7 @@ dependencies[] = auto_entitylabel
 dependencies[] = crf_fts_message
 dependencies[] = crf_workbench
 dependencies[] = date_views
+dependencies[] = entityreference
 dependencies[] = entityreference_view_widget
 dependencies[] = hr_print
 dependencies[] = humanitarianresponse_emergencies
