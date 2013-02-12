@@ -141,6 +141,7 @@ function crf_requests_block_view($delta = '') {
       $items = array();
       $items[] = l('Request (Clusters)', 'node/add/crf-request');
       $items[] = l('Request (Non-Cluster)', 'node/add/non-cluster-request');
+      $items[] = l('Request (Internal)', 'node/add/internal-request');
       $block['subject'] = t('Create Request');
       $block['content'] = theme('item_list', array('items' => $items));
       break;
@@ -155,6 +156,7 @@ function crf_requests_block_view($delta = '') {
       $items[] = l('Manage Job Titles', 'admin/structure/taxonomy/job_title');
       $items[] = l('Manage Locations', 'admin/structure/taxonomy/locations');
       $items[] = l('Manage Organisations', 'admin/structure/taxonomy/organizations');
+      $items[] = l('Manage Reporting types', 'admin/structure/taxonomy/reporting_types');
       $block['subject'] = t('Administrator');
       $block['content'] = theme('item_list', array('items' => $items));
       break;
