@@ -54,11 +54,10 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['fields']['field_job_title']['alter']['text'] = '([field_job_title])';
   $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_job_title']['type'] = 'taxonomy_term_reference_plain';
-  /* Sort criterion: User: Created date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'users';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: User: Last name (field_last_name) */
+  $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
+  $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
   /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -81,13 +80,6 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'entityreference_style';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'field_last_name',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
   $handler->display->display_options['style_options']['search_fields'] = array(
     'field_first_name' => 'field_first_name',
     'field_last_name' => 'field_last_name',
