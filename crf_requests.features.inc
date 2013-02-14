@@ -30,19 +30,19 @@ function crf_requests_context_default_contexts_alter(&$data) {
       'module' => 'crf_requests',
       'delta' => 'administrator',
       'region' => 'sidebar_first',
-      'weight' => '-31',
+      'weight' => '-34',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-create_request'] = array(
       'module' => 'crf_requests',
       'delta' => 'create_request',
       'region' => 'sidebar_first',
-      'weight' => '-34',
+      'weight' => '-35',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-legend'] = array(
       'module' => 'crf_requests',
       'delta' => 'legend',
       'region' => 'sidebar_first',
-      'weight' => '-30',
+      'weight' => '-31',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-tools'] = array(
       'module' => 'crf_requests',
@@ -55,6 +55,12 @@ function crf_requests_context_default_contexts_alter(&$data) {
       'delta' => '-exp-requests-page',
       'region' => 'sidebar_first',
       'weight' => '-32',
+    ); /* WAS: '' */
+    $data['sitewide']->reactions['block']['blocks']['views-6591e942789040dcb7ecfa46a4e559e0'] = array(
+      'module' => 'views',
+      'delta' => '6591e942789040dcb7ecfa46a4e559e0',
+      'region' => 'sidebar_first',
+      'weight' => '-30',
     ); /* WAS: '' */
   }
 }

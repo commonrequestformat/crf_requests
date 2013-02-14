@@ -16,19 +16,19 @@ function crf_requests_features_override_default_overrides() {
     'module' => 'crf_requests',
     'delta' => 'administrator',
     'region' => 'sidebar_first',
-    'weight' => '-31',
+    'weight' => '-34',
   );
   $overrides["context.sitewide.reactions|block|blocks|crf_requests-create_request"] = array(
     'module' => 'crf_requests',
     'delta' => 'create_request',
     'region' => 'sidebar_first',
-    'weight' => '-34',
+    'weight' => '-35',
   );
   $overrides["context.sitewide.reactions|block|blocks|crf_requests-legend"] = array(
     'module' => 'crf_requests',
     'delta' => 'legend',
     'region' => 'sidebar_first',
-    'weight' => '-30',
+    'weight' => '-31',
   );
   $overrides["context.sitewide.reactions|block|blocks|crf_requests-tools"] = array(
     'module' => 'crf_requests',
@@ -41,6 +41,12 @@ function crf_requests_features_override_default_overrides() {
     'delta' => '-exp-requests-page',
     'region' => 'sidebar_first',
     'weight' => '-32',
+  );
+  $overrides["context.sitewide.reactions|block|blocks|views-6591e942789040dcb7ecfa46a4e559e0"] = array(
+    'module' => 'views',
+    'delta' => '6591e942789040dcb7ecfa46a4e559e0',
+    'region' => 'sidebar_first',
+    'weight' => '-30',
   );
 
  return $overrides;

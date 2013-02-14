@@ -11,6 +11,101 @@ function crf_requests_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'focal_points';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Focal Points';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Cluster Focal Points';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_clusters',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_contact_job_title' => 'field_contact_job_title',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Job Title */
+  $handler->display->display_options['fields']['field_contact_job_title']['id'] = 'field_contact_job_title';
+  $handler->display->display_options['fields']['field_contact_job_title']['table'] = 'field_data_field_contact_job_title';
+  $handler->display->display_options['fields']['field_contact_job_title']['field'] = 'field_contact_job_title';
+  $handler->display->display_options['fields']['field_contact_job_title']['label'] = '';
+  $handler->display->display_options['fields']['field_contact_job_title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_contact_job_title']['alter']['text'] = '([field_contact_job_title])';
+  $handler->display->display_options['fields']['field_contact_job_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_contact_job_title']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Clusters */
+  $handler->display->display_options['fields']['field_clusters']['id'] = 'field_clusters';
+  $handler->display->display_options['fields']['field_clusters']['table'] = 'field_data_field_clusters';
+  $handler->display->display_options['fields']['field_clusters']['field'] = 'field_clusters';
+  $handler->display->display_options['fields']['field_clusters']['label'] = '';
+  $handler->display->display_options['fields']['field_clusters']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_clusters']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_clusters']['delta_offset'] = '0';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'contact' => 'contact',
+  );
+  /* Filter criterion: Content: Clusters (field_clusters) */
+  $handler->display->display_options['filters']['field_clusters_tid']['id'] = 'field_clusters_tid';
+  $handler->display->display_options['filters']['field_clusters_tid']['table'] = 'field_data_field_clusters';
+  $handler->display->display_options['filters']['field_clusters_tid']['field'] = 'field_clusters_tid';
+  $handler->display->display_options['filters']['field_clusters_tid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_clusters_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_clusters_tid']['vocabulary'] = 'clusters';
+
+  /* Display: Cluster Focal Points */
+  $handler = $view->new_display('block', 'Cluster Focal Points', 'cluster_focal_points');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $translatables['focal_points'] = array(
+    t('Master'),
+    t('Cluster Focal Points'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('([field_contact_job_title])'),
+  );
+  $export['focal_points'] = $view;
+
+  $view = new view();
   $view->name = 'ocha_focal_points';
   $view->description = '';
   $view->tag = 'default';
@@ -139,7 +234,7 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter Requests';
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 1,
@@ -364,7 +459,7 @@ function crf_requests_views_default_views() {
     t('Master'),
     t('Requests'),
     t('more'),
-    t('Filter'),
+    t('Filter Requests'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
