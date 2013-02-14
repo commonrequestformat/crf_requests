@@ -113,6 +113,9 @@ function crf_requests_block_info() {
   $blocks['administrator'] = array(
     'info' => t('Administrator'),
   );
+  $blocks['tools'] = array(
+    'info' => t('Tools'),
+  );
   return $blocks;
 }
 
@@ -158,6 +161,14 @@ function crf_requests_block_view($delta = '') {
       $items[] = l('Manage Organisations', 'admin/structure/taxonomy/organizations');
       $items[] = l('Manage Reporting types', 'admin/structure/taxonomy/reporting_types');
       $block['subject'] = t('Administrator');
+      $block['content'] = theme('item_list', array('items' => $items));
+      break;
+    case 'tools':
+      $items = array();
+      if ($node = menu_get_object()) {
+        $items[] = l('Print ' . $node->title, 'print/' . $node->nid);
+      }
+      $block['subject'] = t('Tools');
       $block['content'] = theme('item_list', array('items' => $items));
       break;
   }

@@ -16,7 +16,7 @@ function crf_requests_features_override_default_overrides() {
     'module' => 'crf_requests',
     'delta' => 'administrator',
     'region' => 'sidebar_first',
-    'weight' => '-9',
+    'weight' => '-8',
   );
   $overrides["context.sitewide.reactions|block|blocks|crf_requests-create_request"] = array(
     'module' => 'crf_requests',
@@ -28,7 +28,13 @@ function crf_requests_features_override_default_overrides() {
     'module' => 'crf_requests',
     'delta' => 'legend',
     'region' => 'sidebar_first',
-    'weight' => '-8',
+    'weight' => '-7',
+  );
+  $overrides["context.sitewide.reactions|block|blocks|crf_requests-tools"] = array(
+    'module' => 'crf_requests',
+    'delta' => 'tools',
+    'region' => 'sidebar_first',
+    'weight' => '-9',
   );
 
  return $overrides;

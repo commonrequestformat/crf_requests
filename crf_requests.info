@@ -23,6 +23,7 @@ features[features_api][] = api:1
 features[features_overrides][] = context.sitewide.reactions|block|blocks|crf_requests-administrator
 features[features_overrides][] = context.sitewide.reactions|block|blocks|crf_requests-create_request
 features[features_overrides][] = context.sitewide.reactions|block|blocks|crf_requests-legend
+features[features_overrides][] = context.sitewide.reactions|block|blocks|crf_requests-tools
 features[field][] = comment-comment_node_crf_request-comment_body
 features[field][] = node-crf_request-field_append_to_alert_email
 features[field][] = node-crf_request-field_crf_req_contact

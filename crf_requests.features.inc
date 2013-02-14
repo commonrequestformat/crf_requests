@@ -30,7 +30,7 @@ function crf_requests_context_default_contexts_alter(&$data) {
       'module' => 'crf_requests',
       'delta' => 'administrator',
       'region' => 'sidebar_first',
-      'weight' => '-9',
+      'weight' => '-8',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-create_request'] = array(
       'module' => 'crf_requests',
@@ -42,7 +42,13 @@ function crf_requests_context_default_contexts_alter(&$data) {
       'module' => 'crf_requests',
       'delta' => 'legend',
       'region' => 'sidebar_first',
-      'weight' => '-8',
+      'weight' => '-7',
+    ); /* WAS: '' */
+    $data['sitewide']->reactions['block']['blocks']['crf_requests-tools'] = array(
+      'module' => 'crf_requests',
+      'delta' => 'tools',
+      'region' => 'sidebar_first',
+      'weight' => '-9',
     ); /* WAS: '' */
   }
 }
