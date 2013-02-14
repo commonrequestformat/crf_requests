@@ -30,25 +30,31 @@ function crf_requests_context_default_contexts_alter(&$data) {
       'module' => 'crf_requests',
       'delta' => 'administrator',
       'region' => 'sidebar_first',
-      'weight' => '-8',
+      'weight' => '-31',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-create_request'] = array(
       'module' => 'crf_requests',
       'delta' => 'create_request',
       'region' => 'sidebar_first',
-      'weight' => '-10',
+      'weight' => '-34',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-legend'] = array(
       'module' => 'crf_requests',
       'delta' => 'legend',
       'region' => 'sidebar_first',
-      'weight' => '-7',
+      'weight' => '-30',
     ); /* WAS: '' */
     $data['sitewide']->reactions['block']['blocks']['crf_requests-tools'] = array(
       'module' => 'crf_requests',
       'delta' => 'tools',
       'region' => 'sidebar_first',
-      'weight' => '-9',
+      'weight' => '-33',
+    ); /* WAS: '' */
+    $data['sitewide']->reactions['block']['blocks']['views--exp-requests-page'] = array(
+      'module' => 'views',
+      'delta' => '-exp-requests-page',
+      'region' => 'sidebar_first',
+      'weight' => '-32',
     ); /* WAS: '' */
   }
 }
