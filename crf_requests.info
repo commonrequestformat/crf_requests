@@ -85,6 +85,7 @@ features[variable][] = print_display_urllist_crf_request
 features[variable][] = site_frontpage
 features[views_view][] = focal_points
 features[views_view][] = ocha_focal_points
+features[views_view][] = request_content
 features[views_view][] = requests
 features_exclude[dependencies][views] = views
 features_exclude[dependencies][entity] = entity
