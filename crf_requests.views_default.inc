@@ -446,78 +446,8 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
-  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter Requests';
-  $handler->display->display_options['exposed_form']['options']['bef'] = array(
-    'general' => array(
-      'allow_secondary' => 1,
-      'secondary_label' => 'Advanced options',
-    ),
-    'field_emergencies_tid' => array(
-      'bef_format' => 'default',
-      'more_options' => array(
-        'bef_select_all_none' => FALSE,
-        'bef_collapsible' => 1,
-        'is_secondary' => 0,
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-          ),
-        ),
-        'rewrite' => array(
-          'filter_rewrite_values' => '',
-        ),
-      ),
-    ),
-    'name_field_value' => array(
-      'bef_format' => 'default',
-      'more_options' => array(
-        'is_secondary' => 0,
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-          ),
-        ),
-        'rewrite' => array(
-          'filter_rewrite_values' => '',
-        ),
-      ),
-    ),
-    'status' => array(
-      'bef_format' => 'bef',
-      'more_options' => array(
-        'bef_select_all_none' => FALSE,
-        'bef_collapsible' => 0,
-        'is_secondary' => 1,
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-          ),
-        ),
-        'rewrite' => array(
-          'filter_rewrite_values' => '',
-        ),
-      ),
-    ),
-    'date_filter' => array(
-      'bef_format' => 'bef_datepicker',
-      'more_options' => array(
-        'is_secondary' => 1,
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-          ),
-        ),
-        'rewrite' => array(
-          'filter_rewrite_values' => '',
-        ),
-      ),
-    ),
-  );
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'grid';
