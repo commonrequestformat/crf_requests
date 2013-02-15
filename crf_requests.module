@@ -8,6 +8,15 @@ include_once 'crf_requests.features.inc';
 
 
 /**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function crf_requests_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // Move publishing options up on node edit forms.
+  $form['options']['#weight'] = -100;
+}
+
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function crf_requests_form_crf_request_node_form_alter(&$form, &$form_state, $form_id) {
