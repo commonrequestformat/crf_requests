@@ -317,6 +317,34 @@ function crf_requests_views_default_views() {
     52310416 => 0,
     30037204 => 0,
   );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['relationship'] = 'reverse_field_crf_request_node';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'assessments_batch' => 'assessments_batch',
+    'contacts_upload' => 'contacts_upload',
+    'fts_message' => 'fts_message',
+    'indicator_data_batch' => 'indicator_data_batch',
+    'sectoral_analysis' => 'sectoral_analysis',
+    'hr_sitrep' => 'hr_sitrep',
+  );
+  $handler->display->display_options['filters']['type_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type_1']['expose']['operator_id'] = 'type_1_op';
+  $handler->display->display_options['filters']['type_1']['expose']['label'] = 'Information Requested';
+  $handler->display->display_options['filters']['type_1']['expose']['operator'] = 'type_1_op';
+  $handler->display->display_options['filters']['type_1']['expose']['identifier'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['type_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
+  $handler->display->display_options['filters']['type_1']['expose']['reduce'] = TRUE;
   $handler->display->display_options['path'] = 'request/cluster/content';
 
   /* Display: Non-Cluster Request Content */
@@ -387,6 +415,7 @@ function crf_requests_views_default_views() {
     t('All'),
     t('Cluster Request Content'),
     t('Published'),
+    t('Information Requested'),
     t('Non-Cluster Request Content'),
     t('Content referencing Content from field_nc_request'),
     t('Internal Request Content'),
