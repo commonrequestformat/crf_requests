@@ -150,27 +150,12 @@ function crf_requests_block_view($delta = '') {
       $block['content'] = theme('image', $legend_vars);
       break;
     case 'create_request':
-      $items = array();
-      $items[] = l('Request (Clusters)', 'node/add/crf-request');
-      $items[] = l('Request (Non-Cluster)', 'node/add/non-cluster-request');
-      $items[] = l('Request (Internal)', 'node/add/internal-request');
       $block['subject'] = t('Create Request');
-      $block['content'] = theme('item_list', array('items' => $items));
+      $block['content'] = drupal_get_form('crf_requests_create_form');
       break;
     case 'administrator':
-      $items = array();
-      $items[] = l('Create Cluster Objective', 'node/add/cluster-objectives');
-      $items[] = l('Create Focal Point', 'node/add/contact');
-      $items[] = l('Create Indicator Definition', 'node/add/indicator-definition');
-      $items[] = l('Manage Content', 'admin/content');
-      $items[] = l('Manage Clusters', 'admin/structure/taxonomy/clusters');
-      $items[] = l('Manage Emergencies', 'admin/structure/taxonomy/emergencies');
-      $items[] = l('Manage Job Titles', 'admin/structure/taxonomy/job_title');
-      $items[] = l('Manage Locations', 'admin/structure/taxonomy/locations');
-      $items[] = l('Manage Organisations', 'admin/structure/taxonomy/organizations');
-      $items[] = l('Manage Reporting types', 'admin/structure/taxonomy/reporting_types');
       $block['subject'] = t('Administrator');
-      $block['content'] = theme('item_list', array('items' => $items));
+      $block['content'] = drupal_get_form('crf_requests_admin_form');
       break;
     case 'tools':
       $items = array();
@@ -186,4 +171,52 @@ function crf_requests_block_view($delta = '') {
 }
 
 
+function crf_requests_create_form() {
+  $form['links'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'node/add/crf-request' => 'Request (Clusters)',
+      'node/add/non-cluster-request' => 'Request (Non-Cluster)',
+      'node/add/internal-request' => 'Request (Internal)',
+    ),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Go',
+  );
+  return $form;
+}
 
+
+function crf_requests_create_form_submit($form, $form_state) {
+  drupal_goto($form_state['values']['links']);
+}
+
+
+function crf_requests_admin_form() {
+  $form['links'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'node/add/cluster-objectives' => 'Create Cluster Objective',
+      'node/add/contact' => 'Create Focal Point',
+      'node/add/indicator-definition' => 'Create Indicator Definition',
+      'admin/content' => 'Manage Content',
+      'admin/structure/taxonomy/clusters' => 'Manage Clusters',
+      'admin/structure/taxonomy/emergencies' => 'Manage Emergencies',
+      'admin/structure/taxonomy/job_title' => 'Manage Job Titles',
+      'admin/structure/taxonomy/locations' => 'Manage Locations',
+      'admin/structure/taxonomy/organizations' => 'Manage Organisations',
+      'admin/structure/taxonomy/reporting_types' => 'Manage Reporting types',
+    ),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Go',
+  );
+  return $form;
+}
+
+
+function crf_requests_admin_form_submit($form, $form_state) {
+  drupal_goto($form_state['values']['links']);
+}
