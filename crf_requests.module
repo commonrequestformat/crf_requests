@@ -35,6 +35,16 @@ function crf_requests_form_crf_request_node_form_alter(&$form, &$form_state, $fo
 
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function crf_requests_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {  
+  if ($form['#id'] == 'views-exposed-form-request-content-cluster-request-content') {
+    $form['nid'] = crf_requests_convert_form_textfield('node', 'crf_request');
+  }
+}
+
+
+/**
  * Implements hook_node_presave().
  */
 function crf_requests_node_presave($node) {
@@ -219,4 +229,25 @@ function crf_requests_admin_form() {
 
 function crf_requests_admin_form_submit($form, $form_state) {
   drupal_goto($form_state['values']['links']);
+}
+
+
+function crf_requests_convert_form_textfield($type, $machine_name = NULL) {
+  $options = array('' => '- Any -');
+  $query = new EntityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', $type)
+    ->entityCondition('bundle', $machine_name)
+    ->execute();
+  if (!empty($result)) {
+    foreach (array_keys($result[$type]) as $id) {
+      $entity = node_load($id);
+      $options[$id] = $entity->title;
+    }
+  }
+  return array(
+    '#type' => 'select',
+    '#options' => $options,
+    '#default_value' => '',
+  );
 }

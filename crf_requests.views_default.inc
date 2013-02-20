@@ -298,6 +298,25 @@ function crf_requests_views_default_views() {
     'crf_request' => 'crf_request',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid']['id'] = 'nid';
+  $handler->display->display_options['filters']['nid']['table'] = 'node';
+  $handler->display->display_options['filters']['nid']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid']['group'] = 1;
+  $handler->display->display_options['filters']['nid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['operator_id'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['label'] = 'Request';
+  $handler->display->display_options['filters']['nid']['expose']['operator'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['identifier'] = 'nid';
+  $handler->display->display_options['filters']['nid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -331,6 +350,7 @@ function crf_requests_views_default_views() {
     'sectoral_analysis' => 'sectoral_analysis',
     'hr_sitrep' => 'hr_sitrep',
   );
+  $handler->display->display_options['filters']['type_1']['group'] = 1;
   $handler->display->display_options['filters']['type_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type_1']['expose']['operator_id'] = 'type_1_op';
   $handler->display->display_options['filters']['type_1']['expose']['label'] = 'Information Requested';
@@ -374,6 +394,41 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'non_cluster_request' => 'non_cluster_request',
   );
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid']['id'] = 'nid';
+  $handler->display->display_options['filters']['nid']['table'] = 'node';
+  $handler->display->display_options['filters']['nid']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['operator_id'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['label'] = 'Request';
+  $handler->display->display_options['filters']['nid']['expose']['operator'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['identifier'] = 'nid';
+  $handler->display->display_options['filters']['nid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
+  /* Filter criterion: Field: Information Focal Points (field_information_focal_points) */
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['id'] = 'field_information_focal_points_target_id';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['table'] = 'field_data_field_information_focal_points';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['field'] = 'field_information_focal_points_target_id';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['expose']['operator_id'] = 'field_information_focal_points_target_id_op';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['expose']['label'] = 'Information Focal Point';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['expose']['operator'] = 'field_information_focal_points_target_id_op';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['expose']['identifier'] = 'field_information_focal_points_target_id';
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_information_focal_points_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
   $handler->display->display_options['path'] = 'request/non-cluster/content';
 
   /* Display: Internal Request Content */
@@ -402,6 +457,63 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'internal_request' => 'internal_request',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid']['id'] = 'nid';
+  $handler->display->display_options['filters']['nid']['table'] = 'node';
+  $handler->display->display_options['filters']['nid']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid']['group'] = 1;
+  $handler->display->display_options['filters']['nid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['operator_id'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['label'] = 'Request';
+  $handler->display->display_options['filters']['nid']['expose']['operator'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['identifier'] = 'nid';
+  $handler->display->display_options['filters']['nid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
+  /* Filter criterion: Content: Reporting type (field_reporting_type) */
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['id'] = 'field_reporting_type_target_id';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['table'] = 'field_data_field_reporting_type';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['field'] = 'field_reporting_type_target_id';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['operator_id'] = 'field_reporting_type_target_id_op';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['label'] = 'Reporting type';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['operator'] = 'field_reporting_type_target_id_op';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['identifier'] = 'field_reporting_type_target_id';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
+  /* Filter criterion: Content: OCHA focal point(s) (field_int_req_contact) */
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['id'] = 'field_int_req_contact_target_id';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['table'] = 'field_data_field_int_req_contact';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['field'] = 'field_int_req_contact_target_id';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['expose']['operator_id'] = 'field_int_req_contact_target_id_op';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['expose']['label'] = 'OCHA focal point';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['expose']['operator'] = 'field_int_req_contact_target_id_op';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['expose']['identifier'] = 'field_int_req_contact_target_id';
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_int_req_contact_target_id']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
   $handler->display->display_options['path'] = 'request/internal/content';
   $translatables['request_content'] = array(
     t('Master'),
@@ -415,12 +527,16 @@ function crf_requests_views_default_views() {
     t('Content referencing Content from field_crf_request'),
     t('All'),
     t('Cluster Request Content'),
+    t('Request'),
     t('Published'),
     t('Information Requested'),
     t('Non-Cluster Request Content'),
     t('Content referencing Content from field_nc_request'),
+    t('Information Focal Point'),
     t('Internal Request Content'),
     t('Content referencing Content from field_internal_request'),
+    t('Reporting type'),
+    t('OCHA focal point'),
   );
   $export['request_content'] = $view;
 
