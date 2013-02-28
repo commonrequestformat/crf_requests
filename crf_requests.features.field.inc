@@ -474,7 +474,7 @@ function crf_requests_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '7',
+        'weight' => '8',
       ),
       'workbench_access_field' => 0,
     ),
@@ -577,7 +577,7 @@ function crf_requests_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'options_buttons',
-        'weight' => '5',
+        'weight' => '6',
       ),
       'workbench_access_field' => 0,
     ),
@@ -843,7 +843,7 @@ function crf_requests_field_default_fields() {
         'active' => 1,
         'module' => 'options',
         'settings' => array(),
-        'type' => 'options_buttons',
+        'type' => 'options_select',
         'weight' => '2',
       ),
     ),
@@ -996,7 +996,7 @@ function crf_requests_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_request_deadline',
-      'label' => 'Deadline',
+      'label' => 'Deadline for information submission',
       'required' => 0,
       'settings' => array(
         'default_value' => 'blank',
@@ -1019,7 +1019,7 @@ function crf_requests_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_select',
-        'weight' => '8',
+        'weight' => '5',
       ),
       'workbench_access_field' => 0,
     ),
@@ -1031,7 +1031,7 @@ function crf_requests_field_default_fields() {
   t('Comment');
   t('Contact');
   t('Date');
-  t('Deadline');
+  t('Deadline for information submission');
   t('Emergencies');
   t('Financial Tracking Service');
   t('Information Requested');

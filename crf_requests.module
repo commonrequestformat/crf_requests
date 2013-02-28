@@ -37,9 +37,14 @@ function crf_requests_form_crf_request_node_form_alter(&$form, &$form_state, $fo
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function crf_requests_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {  
-  if ($form['#id'] == 'views-exposed-form-request-content-cluster-request-content') {
-    $form['nid'] = crf_requests_convert_form_textfield('node', 'crf_request');
+function crf_requests_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  switch($form['#id']) {
+    case 'views-exposed-form-requests-page':
+      $form['name_field_value'] = crf_requests_convert_form_textfield('taxonomy_term', 'disaster_types');
+      break;
+    case 'views-exposed-form-request-content-cluster-request-content':
+      $form['nid'] = crf_requests_convert_form_textfield('node', 'crf_request');
+      break;
   }
 }
 
@@ -132,6 +137,9 @@ function crf_requests_block_info() {
   $blocks['administrator'] = array(
     'info' => t('Administrator'),
   );
+  $blocks['view_data'] = array(
+    'info' => t('View Data'),
+  );
   $blocks['tools'] = array(
     'info' => t('Tools'),
   );
@@ -142,7 +150,7 @@ function crf_requests_block_info() {
 /**
  * Implements hook_block_view().
  */
-function crf_requests_block_view($delta = '') {
+function crf_requests_block_view($delta = '') {  
   $block = array();
 
   switch ($delta) {
@@ -167,13 +175,17 @@ function crf_requests_block_view($delta = '') {
       $block['subject'] = t('Administrator');
       $block['content'] = drupal_get_form('crf_requests_admin_form');
       break;
+    case 'view_data':
+      $block['subject'] = t('View Data');
+      $block['content'] = drupal_get_form('crf_requests_view_data_form');
+      break;
     case 'tools':
       $items = array();
       if ($node = menu_get_object()) {
         $items[] = l('Print ' . $node->title, 'print/' . $node->nid);
+        $block['subject'] = t('Tools');
+        $block['content'] = theme('item_list', array('items' => $items));
       }
-      $block['subject'] = t('Tools');
-      $block['content'] = theme('item_list', array('items' => $items));
       break;
   }
   
@@ -232,6 +244,32 @@ function crf_requests_admin_form_submit($form, $form_state) {
 }
 
 
+function crf_requests_view_data_form() {
+  $form['links'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'request/cluster/content' => 'Requests (Clusters)',
+      'request/non-cluster/content' => 'Requests (Non-Cluster)',
+      'request/internal/content' => 'Requests (Internal)',
+      'crf/cluster-content/hr_sitrep/Situation Report Information' => 'Situation Report Information',
+      'crf/indicator-data/table' => 'Indicator Values',
+      'crf/cluster-content/sectoral_analysis/Sectoral Analysis' => 'Sectoral Analysis',
+      'taxonomy/term/all/contacts' => 'Contacts',
+      'resources/assessment-registry' => 'Assessments',
+    ),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Go',
+  );
+  return $form;
+}
+
+function crf_requests_view_data_form_submit($form, $form_state) {
+  drupal_goto($form_state['values']['links']);
+}
+
+
 function crf_requests_convert_form_textfield($type, $machine_name = NULL) {
   $options = array('' => '- Any -');
   $query = new EntityFieldQuery();
@@ -241,8 +279,14 @@ function crf_requests_convert_form_textfield($type, $machine_name = NULL) {
     ->execute();
   if (!empty($result)) {
     foreach (array_keys($result[$type]) as $id) {
-      $entity = node_load($id);
-      $options[$id] = $entity->title;
+      if ($type == 'taxonomy_term') {
+        $entity = taxonomy_term_load($id);
+        $options[$id] = $entity->name;
+      }
+      else if ($type == 'node') {
+        $entity = node_load($id);
+        $options[$id] = $entity->title;
+      }
     }
   }
   return array(
@@ -251,3 +295,4 @@ function crf_requests_convert_form_textfield($type, $machine_name = NULL) {
     '#default_value' => '',
   );
 }
+
