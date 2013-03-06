@@ -11,8 +11,20 @@ include_once 'crf_requests.features.inc';
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function crf_requests_form_node_form_alter(&$form, &$form_state, $form_id) {
-  // Move publishing options up on node edit forms.
-  $form['options']['#weight'] = -100;
+  $node = $form['#node'];
+  if (workbench_moderation_node_type_moderated($node->type)) {
+  
+    // Move publishing options up on node edit forms.
+    $form['options']['#weight'] = -100;
+
+    if (!isset($node->nid)) {
+      $form['actions']['submit']['#prefix'] = '<div>' . t('Make sure you selected the "Current: Draft" moderation state in the "Publishing options" section above.') . '</div>';
+    }
+    else {
+      $content_type = node_type_load($node->type);
+      $form['actions']['submit']['#prefix'] = '<div>' . t('Select the "Submit to OCHA" moderation state in the "Publishing options" section above to submit this @content_type to OCHA.', array('@content_type' => $content_type->name)) . '</div>';
+    }
+  }
 }
 
 
