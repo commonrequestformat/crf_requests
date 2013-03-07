@@ -149,6 +149,16 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['fields']['field_job_title']['alter']['text'] = '([field_job_title])';
   $handler->display->display_options['fields']['field_job_title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_job_title']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Field: Location */
+  $handler->display->display_options['fields']['field_locations']['id'] = 'field_locations';
+  $handler->display->display_options['fields']['field_locations']['table'] = 'field_data_field_locations';
+  $handler->display->display_options['fields']['field_locations']['field'] = 'field_locations';
+  $handler->display->display_options['fields']['field_locations']['label'] = '';
+  $handler->display->display_options['fields']['field_locations']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_locations']['alter']['text'] = '- [field_locations]';
+  $handler->display->display_options['fields']['field_locations']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_locations']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_locations']['delta_offset'] = '0';
   /* Sort criterion: User: Last name (field_last_name) */
   $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
   $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
@@ -188,6 +198,7 @@ function crf_requests_views_default_views() {
     'field_first_name' => 'field_first_name',
     'field_last_name' => 'field_last_name',
     'field_job_title' => 'field_job_title',
+    'field_locations' => 'field_locations',
   );
   $handler->display->display_options['row_options']['separator'] = '';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -207,6 +218,7 @@ function crf_requests_views_default_views() {
     t('next ›'),
     t('last »'),
     t('([field_job_title])'),
+    t('- [field_locations]'),
     t('Entity Reference'),
   );
   $export['ocha_focal_points'] = $view;
@@ -519,7 +531,7 @@ function crf_requests_views_default_views() {
     52310416 => 0,
     30037204 => 0,
   );
-  /* Filter criterion: Content: OCHA focal point(s) (field_int_req_contact) */
+  /* Filter criterion: Content: Select OCHA staff to receive request (field_int_req_contact) */
   $handler->display->display_options['filters']['field_int_req_contact_target_id']['id'] = 'field_int_req_contact_target_id';
   $handler->display->display_options['filters']['field_int_req_contact_target_id']['table'] = 'field_data_field_int_req_contact';
   $handler->display->display_options['filters']['field_int_req_contact_target_id']['field'] = 'field_int_req_contact_target_id';

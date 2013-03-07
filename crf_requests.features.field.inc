@@ -413,7 +413,7 @@ function crf_requests_field_default_fields() {
             'diff_custom_settings' => array(),
           ),
           'type' => 'text_default',
-          'weight' => 4,
+          'weight' => '4',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -713,7 +713,7 @@ function crf_requests_field_default_fields() {
           'settings' => array(
             'diff_custom' => 0,
             'diff_custom_settings' => array(),
-            'format_type' => 'long',
+            'format_type' => 'request',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -891,7 +891,7 @@ function crf_requests_field_default_fields() {
             'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
-          'weight' => 9,
+          'weight' => '9',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
@@ -979,7 +979,7 @@ function crf_requests_field_default_fields() {
             'multiple_to' => '',
           ),
           'type' => 'date_default',
-          'weight' => 8,
+          'weight' => '8',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
