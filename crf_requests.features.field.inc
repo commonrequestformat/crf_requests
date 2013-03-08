@@ -576,7 +576,7 @@ function crf_requests_field_default_fields() {
           'path' => '',
           'size' => '60',
         ),
-        'type' => 'options_buttons',
+        'type' => 'options_select',
         'weight' => '6',
       ),
       'workbench_access_field' => 0,

@@ -675,14 +675,34 @@ function crf_requests_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['value'] = 'All';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['exposed'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
   $handler->display->display_options['filters']['status']['expose']['label'] = 'Published';
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    218860149 => 0,
+    200153887 => 0,
+    52310416 => 0,
+    30037204 => 0,
+  );
+  /* Filter criterion: Content: Reporting type (field_reporting_type) */
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['id'] = 'field_reporting_type_target_id';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['table'] = 'field_data_field_reporting_type';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['field'] = 'field_reporting_type_target_id';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['operator_id'] = 'field_reporting_type_target_id_op';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['label'] = 'Request Type';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['operator'] = 'field_reporting_type_target_id_op';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['identifier'] = 'field_reporting_type_target_id';
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_reporting_type_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     218860149 => 0,
@@ -749,6 +769,7 @@ function crf_requests_views_default_views() {
     t('Emergency'),
     t('Disaster type'),
     t('Published'),
+    t('Request Type'),
     t('Date range'),
     t('Page'),
   );

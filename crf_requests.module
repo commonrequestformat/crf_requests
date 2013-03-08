@@ -53,6 +53,7 @@ function crf_requests_form_views_exposed_form_alter(&$form, &$form_state, $form_
   switch($form['#id']) {
     case 'views-exposed-form-requests-page':
       $form['name_field_value'] = crf_requests_convert_form_textfield('taxonomy_term', 'disaster_types');
+      $form['field_reporting_type_target_id'] = crf_requests_convert_form_textfield('taxonomy_term', 'reporting_types');      
       break;
     case 'views-exposed-form-request-content-cluster-request-content':
       $form['nid'] = crf_requests_convert_form_textfield('node', 'crf_request');

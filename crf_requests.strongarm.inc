@@ -169,6 +169,12 @@ function crf_requests_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'entityreference_view_widget' => array(
+        'custom_settings' => TRUE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -200,20 +206,8 @@ function crf_requests_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'locale_custom_disabled_strings_en';
-  $strongarm->value = array();
-  $export['locale_custom_disabled_strings_en'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'locale_custom_strings_en';
-  $strongarm->value = array(
-    '' => array(
-      '@type %title has been created.' => '@type %title has been created and email notifications have been sent.',
-      'Your draft will be placed in moderation.' => 'Your content will be saved as draft upon saving.  You will be able to submit to OCHA on the following screen if you are ready.',
-    ),
-  );
+  $strongarm->value = array();
   $export['locale_custom_strings_en'] = $strongarm;
 
   $strongarm = new stdClass();
