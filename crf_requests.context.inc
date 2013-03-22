@@ -17,9 +17,9 @@ function crf_requests_context_default_contexts() {
   $context->description = 'CRF sidewide context';
   $context->tag = '';
   $context->conditions = array(
-    'sitewide' => array(
+    'path' => array(
       'values' => array(
-        1 => 1,
+        'crf' => 'crf',
       ),
     ),
   );
@@ -50,23 +50,11 @@ function crf_requests_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),
-        'views--exp-requests-page' => array(
-          'module' => 'views',
-          'delta' => '-exp-requests-page',
-          'region' => 'sidebar_first',
-          'weight' => '-6',
-        ),
         'crf_requests-legend' => array(
           'module' => 'crf_requests',
           'delta' => 'legend',
           'region' => 'sidebar_first',
           'weight' => '-5',
-        ),
-        'views-6591e942789040dcb7ecfa46a4e559e0' => array(
-          'module' => 'views',
-          'delta' => '6591e942789040dcb7ecfa46a4e559e0',
-          'region' => 'sidebar_first',
-          'weight' => '-4',
         ),
       ),
     ),

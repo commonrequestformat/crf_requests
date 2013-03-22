@@ -10,56 +10,6 @@
 function crf_requests_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: create crf_request content.
-  $permissions['create crf_request content'] = array(
-    'name' => 'create crf_request content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'manager' => 'manager',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete any crf_request content.
-  $permissions['delete any crf_request content'] = array(
-    'name' => 'delete any crf_request content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'manager' => 'manager',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete own crf_request content.
-  $permissions['delete own crf_request content'] = array(
-    'name' => 'delete own crf_request content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'manager' => 'manager',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: edit any crf_request content.
-  $permissions['edit any crf_request content'] = array(
-    'name' => 'edit any crf_request content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'manager' => 'manager',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: edit own crf_request content.
-  $permissions['edit own crf_request content'] = array(
-    'name' => 'edit own crf_request content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'manager' => 'manager',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: node-specific print configuration.
   $permissions['node-specific print configuration'] = array(
     'name' => 'node-specific print configuration',
@@ -100,16 +50,6 @@ function crf_requests_user_default_permissions() {
       'manager' => 'manager',
     ),
     'module' => 'advanced_help',
-  );
-
-  // Exported permission: view any unpublished crf_request content.
-  $permissions['view any unpublished crf_request content'] = array(
-    'name' => 'view any unpublished crf_request content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'manager' => 'manager',
-    ),
-    'module' => 'view_unpublished',
   );
 
   return $permissions;

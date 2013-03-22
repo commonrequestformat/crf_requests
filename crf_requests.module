@@ -31,109 +31,15 @@ function crf_requests_form_node_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function crf_requests_form_crf_request_node_form_alter(&$form, &$form_state, $form_id) {
-  $node = $form['#node'];
-  if (!isset($node->nid)) {  
-    $form['actions']['submit']['#value'] = t('Create & Send Info Request');
-  
-    // Help link
-    $help_link = theme('advanced_help_topic', array(
-      'module' => 'crf_requests',
-      'topic' => 'request-email',
-    ));
-    $form['field_append_to_alert_email']['#prefix'] = $help_link . '&nbsp;' . t('Show me an Information Request email example');
-  }
-}
-
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
 function crf_requests_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
   switch($form['#id']) {
     case 'views-exposed-form-requests-page':
-      $form['name_field_value'] = crf_requests_convert_form_textfield('taxonomy_term', 'disaster_types');
       $form['field_reporting_type_target_id'] = crf_requests_convert_form_textfield('taxonomy_term', 'reporting_types');      
       break;
     case 'views-exposed-form-request-content-cluster-request-content':
       $form['nid'] = crf_requests_convert_form_textfield('node', 'crf_request');
       break;
   }
-}
-
-
-/**
- * Implements hook_node_presave().
- */
-function crf_requests_node_presave($node) {
-  if ($node->type == 'crf_request' && $node->is_new) {
-    if (isset($node->field_crf_req_contact['und'])) {
-      $cluster_contacts = crf_requests_get_cluster_contacts();    
-      foreach ($cluster_contacts as $cluster_contact) {
-        foreach ($node->field_crf_req_contact['und'] as $request_contact) {
-          $ocha_focal_point = user_load($request_contact['target_id']);
-          $params = array(
-            'node' => $node,
-            'cluster_contact' => $cluster_contact,
-            'ocha_focal_point' => $ocha_focal_point,
-          );
-          drupal_mail('crf_requests', 'new_request_alert', $cluster_contact->field_contact_email['und'][0]['email'], $node->language, $params, $ocha_focal_point->mail);
-        }
-      }
-    }
-  }
-}
-
-
-/**
- * Implements hook_mail().
- */
-function crf_requests_mail($key, &$message, $params) {
-  if ($key == 'new_request_alert') {
-    $node = $params['node'];
-    $cluster_contact = $params['cluster_contact'];
-    $ocha_focal_point = $params['ocha_focal_point'];
-    
-    $content_types = array();
-    $content_type_names = node_type_get_names();    
-    foreach ($node->field_crf_req_contents['und'] as $content_type) {
-      $content_types[] = $content_type_names[$content_type['value']];
-    }
-    
-    $append_to_email = !empty($node->field_append_to_alert_email['und']) ? $node->field_append_to_alert_email['und'][0]['value'] : '';
-
-    $body = '<p>Dear ' . $cluster_contact->field_contact_first_name['und'][0]['value'] . ' ' . $cluster_contact->field_contact_lastname['und'][0]['value'] . ',</p>';
-    $body .= '<p>OCHA (' . $ocha_focal_point->field_first_name['und'][0]['value'] . ' ' . $ocha_focal_point->field_last_name['und'][0]['value'] . ') is requesting that you provide specific information as outlined below in the Information Request ' . $node->title . '.</p>';
-    $body .= '<p>' . theme('item_list', array('items' => $content_types)) . '</p>';
-    $body .= '<p>' . $append_to_email . '</p>';
-    $body .= '<p>Kindly provide your information online: ' . url("<front>", array("absolute" => TRUE)) . '</p>';
-    $body .= '<p>Kind regards,' . '<br />';
-    $body .= 'OCHA</p>';
-
-    $message['subject'] = t('New Request for @content_types (from OCHA)', array('@content_types' => implode(',', $content_types)));
-    if (isset($node->field_request_deadline['und'][0]['value'])) {
-      $message['subject'] .= t(' - requested by @deadline', array('@deadline' => format_date(strtotime($node->field_request_deadline['und'][0]['value']), 'request')));
-    }
-    $message['body'][] = drupal_html_to_text($body);
-  }
-}
-
-
-function crf_requests_get_cluster_contacts() {
-  $contacts = array();
-  
-  $clusters_vocabulary = taxonomy_vocabulary_machine_name_load('clusters');
-  $clusters = taxonomy_get_tree($clusters_vocabulary->vid, 0, NULL, TRUE);
-
-  foreach ($clusters as $cluster) {
-    if (!empty($cluster->field_information_focal_points)) {
-      foreach ($cluster->field_information_focal_points['und'] as $information_focal_point) {
-        $contacts[$information_focal_point['target_id']] = node_load($information_focal_point['target_id']);
-      }
-    }
-  }
-
-  return $contacts;
 }
 
 
@@ -210,9 +116,7 @@ function crf_requests_create_form() {
   $form['links'] = array(
     '#type' => 'select',
     '#options' => array(
-      'node/add/crf-request' => 'Request (Clusters)',
-      'node/add/non-cluster-request' => 'Request (Non-Cluster)',
-      'node/add/internal-request' => 'Request (Internal)',
+      'node/add/request' => 'Request',
     ),
   );
   $form['submit'] = array(

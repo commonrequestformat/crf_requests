@@ -24,20 +24,3 @@ function crf_requests_ctools_plugin_api() {
 function crf_requests_views_api() {
   return array("api" => "3.0");
 }
-
-/**
- * Implements hook_node_info().
- */
-function crf_requests_node_info() {
-  $items = array(
-    'crf_request' => array(
-      'name' => t('Request (Clusters)'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Name'),
-      'help' => '',
-    ),
-  );
-  return $items;
-}
