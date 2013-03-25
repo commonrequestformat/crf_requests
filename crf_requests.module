@@ -34,6 +34,7 @@ function crf_requests_form_node_form_alter(&$form, &$form_state, $form_id) {
 function crf_requests_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
   switch($form['#id']) {
     case 'views-exposed-form-requests-page':
+      $form['nid'] = crf_requests_convert_form_textfield('node', 'request');
       $form['field_reporting_type_target_id'] = crf_requests_convert_form_textfield('taxonomy_term', 'reporting_types');      
       break;
     case 'views-exposed-form-request-content-cluster-request-content':
@@ -165,9 +166,6 @@ function crf_requests_view_data_form() {
   $form['links'] = array(
     '#type' => 'select',
     '#options' => array(
-      'request/cluster/content' => 'Requests (Clusters)',
-      'request/non-cluster/content' => 'Requests (Non-Cluster)',
-      'request/internal/content' => 'Requests (Internal)',
       'crf/cluster-content/hr_sitrep/Situation Report Information' => 'Situation Report Information',
       'crf/indicator-data/table' => 'Indicator Values',
       'crf/cluster-content/sectoral_analysis/Sectoral Analysis' => 'Sectoral Analysis',
