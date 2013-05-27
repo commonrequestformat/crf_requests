@@ -51,9 +51,11 @@ function crf_requests_block_info() {
   $blocks['legend'] = array(
     'info' => t('Legend'),
   );
+/*
   $blocks['create_request'] = array(
     'info' => t('Create Request'),
   );
+*/
   $blocks['administrator'] = array(
     'info' => t('Administrator'),
   );
@@ -87,10 +89,12 @@ function crf_requests_block_view($delta = '') {
       $block['subject'] = t('Legend');
       $block['content'] = theme('image', $legend_vars);
       break;
+/*
     case 'create_request':
       $block['subject'] = t('Create Request');
       $block['content'] = drupal_get_form('crf_requests_create_form');
       break;
+*/
     case 'administrator':
       $block['subject'] = t('Administrator');
       $block['content'] = drupal_get_form('crf_requests_admin_form');
